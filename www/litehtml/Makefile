@@ -11,10 +11,14 @@ COMMENT=	Fast and lightweight HTML/CSS rendering engine
 LICENSE=	BSD3CLAUSE
 LICENSE_FILE=	${WRKSRC}/LICENSE
 
-#LIB_DEPENDS=	libgumbo.so:devel/gumbo
+LIB_DEPENDS=	libgumbo.so:devel/gumbo
 
-USES=		cmake ninja
+USES=		cmake localbase ninja
 
 USE_GITHUB=	yes
+
+post-patch:
+	@${REINPLACE_CMD} 's|"gumbo/gumbo.h"|<gumbo.h>|' \
+		${WRKSRC}/src/document.*
 
 .include <bsd.port.mk>

@@ -1,12 +1,15 @@
---- cmake/litehtmlConfig.cmake.orig	2019-08-04 19:08:36 UTC
-+++ cmake/litehtmlConfig.cmake
-@@ -0,0 +1,3 @@
-+include(CMakeFindDependencyMacro)
-+find_dependency(gumbo)
-+include(${CMAKE_CURRENT_LIST_DIR}/litehtmlTargets.cmake)
 --- CMakeLists.txt.orig	2018-09-16 19:14:44 UTC
 +++ CMakeLists.txt
-@@ -43,16 +43,77 @@ set(SOURCE_LITEHTML
+@@ -2,8 +2,6 @@ cmake_minimum_required(VERSION 2.8)
+ 
+ project(litehtml CXX)
+ 
+-add_subdirectory(src/gumbo)
+-
+ set(SOURCE_LITEHTML
+     src/background.cpp
+     src/box.cpp
+@@ -43,16 +41,77 @@ set(SOURCE_LITEHTML
      src/web_color.cpp
  )
  
@@ -86,61 +89,9 @@
 +install(FILES cmake/litehtmlConfig.cmake DESTINATION lib/cmake/litehtml)
 +install(EXPORT litehtmlTargets FILE litehtmlTargets.cmake DESTINATION lib/cmake/litehtml)
 +
---- b/cmake/litehtmlConfig.cmake.orig	2019-08-04 19:05:39 UTC
-+++ b/cmake/litehtmlConfig.cmake
+--- cmake/litehtmlConfig.cmake.orig	2019-08-06 15:30:16 UTC
++++ cmake/litehtmlConfig.cmake
 @@ -0,0 +1,3 @@
 +include(CMakeFindDependencyMacro)
 +find_dependency(gumbo)
 +include(${CMAKE_CURRENT_LIST_DIR}/litehtmlTargets.cmake)
---- src/gumbo/CMakeLists.txt.orig	2018-09-16 19:14:44 UTC
-+++ src/gumbo/CMakeLists.txt
-@@ -16,10 +16,32 @@ set(SOURCE_GUMBO
-     vector.c
- )
- 
-+set(HEADER_GUMBO
-+    attribute.h
-+    char_ref.h
-+    error.h
-+    gumbo.h
-+    insertion_mode.h
-+    parser.h
-+    string_buffer.h
-+    string_piece.h
-+    tag_enum.h
-+    tag_gperf.h
-+    tag_sizes.h
-+    tag_strings.h
-+    token_type.h
-+    tokenizer.h
-+    tokenizer_states.h
-+    utf8.h
-+    util.h
-+    vector.h
-+)
-+
- add_library(${PROJECT_NAME} ${SOURCE_GUMBO})
- 
- set_target_properties(${PROJECT_NAME} PROPERTIES
-     C_STANDARD 99
-+    PUBLIC_HEADER "${HEADER_GUMBO}"
- )
- 
- if(MSVC)
-@@ -27,4 +49,15 @@ if(MSVC)
- endif()
- 
- # Export gumbo includes.
--target_include_directories(${PROJECT_NAME} PUBLIC ${PROJECT_SOURCE_DIR})
-+target_include_directories(${PROJECT_NAME} PUBLIC
-+    $<BUILD_INTERFACE:${PROJECT_SOURCE_DIR}>
-+    $<INSTALL_INTERFACE:include>
-+)
-+
-+# install and export
-+install(TARGETS ${PROJECT_NAME}
-+    EXPORT gumbo
-+    ARCHIVE DESTINATION lib
-+    PUBLIC_HEADER DESTINATION include/gumbo
-+)
-+install(EXPORT gumbo FILE gumboConfig.cmake DESTINATION lib/cmake/gumbo)
