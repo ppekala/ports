@@ -5,7 +5,7 @@ PORTNAME=	cdogs-sdl
 PORTVERSION=	0.6.9
 CATEGORIES=	games
 
-MAINTAINER=	pawel@FreeBSD.org
+MAINTAINER=	c0rn@o2.pl
 COMMENT=	Open source, classic overhead run-and-gun game
 
 LICENSE=	GPLv2
@@ -19,13 +19,14 @@ GH_ACCOUNT=	cxong
 USE_GL=		gl glu
 USE_SDL=	image2 mixer2
 
-CMAKE_ARGS=	-DCDOGS_DATA_DIR:PATH="${DATADIR}"
+LIB_DEPENDS=	libenet.so:net/enet
+
+CMAKE_ARGS=	-DCDOGS_DATA_DIR:PATH="${DATADIR}" \
+		-DUSE_SHARED_ENET=on
 
 post-patch:
 	@${REINPLACE_CMD} 's,@CDOGS_DATA_DIR@,&\/,' \
 		${WRKSRC}/src/cdogs/sys_config.h.cmake
-	@${REINPLACE_CMD} '/_POSIX_C_SOURCE/d' \
-		${WRKSRC}/src/cdogs/enet/unix.c
 
 post-install:
 	@${STRIP_CMD} ${STAGEDIR}${PREFIX}/bin/cdogs-sdl
