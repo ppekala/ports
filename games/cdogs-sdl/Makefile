@@ -1,8 +1,7 @@
-# Created by: Pawel Pekala <pawel@freebsd.org>
 # $FreeBSD$
 
 PORTNAME=	cdogs-sdl
-PORTVERSION=	0.6.9
+PORTVERSION=	0.7.3
 CATEGORIES=	games
 
 MAINTAINER=	c0rn@o2.pl
