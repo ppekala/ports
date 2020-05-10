@@ -1,0 +1,8 @@
+#!/bin/sh
+
+PORTSDIR=${PORTSDIR:-/usr/ports}
+
+for port in $(find . -type d -depth 2 | sed 's,\./,,' | grep -v '^.git' ); do
+	[ -d "$PORTSDIR/$port" ] && continue
+	ln -sv "$PWD/$port" "$PORTSDIR/$port"
+done
