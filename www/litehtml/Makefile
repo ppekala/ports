@@ -5,7 +5,7 @@ PORTVERSION=	0.5
 DISTVERSIONPREFIX=	v
 CATEGORIES=	www devel
 
-MAINTAINER=	c0rn@o2.pl
+MAINTAINER=	ports@FreeBSD.org
 COMMENT=	Fast and lightweight HTML/CSS rendering engine
 
 LICENSE=	BSD3CLAUSE

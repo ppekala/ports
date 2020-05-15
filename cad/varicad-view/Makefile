@@ -6,7 +6,7 @@ CATEGORIES=	cad
 MASTER_SITES=	https://www.varicad.com/userdata/files/release/en/
 DISTFILES=	varicad2019-view-en_3.03_amd64.deb
 
-MAINTAINER=	c0rn@o2.pl
+MAINTAINER=	ports@FreeBSD.org
 COMMENT=	Free CAD viewer, convertor and printing software
 
 USES=		desktop-file-utils linux shared-mime-info

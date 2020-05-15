@@ -9,7 +9,7 @@ MASTER_SITES=	https://webkitgtk.org/releases/
 PKGNAMESUFFIX=	-gtk2
 DISTNAME=	${PORTNAME}gtk-${PORTVERSION}
 
-MAINTAINER=	gnome@FreeBSD.org
+MAINTAINER=	ports@FreeBSD.org
 COMMENT=	Opensource browser engine using the GTK+ 2 toolkit
 
 BUILD_DEPENDS=	gtkdoc-rebase:textproc/gtk-doc \

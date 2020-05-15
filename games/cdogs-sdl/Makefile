@@ -4,7 +4,7 @@ PORTNAME=	cdogs-sdl
 PORTVERSION=	0.7.3
 CATEGORIES=	games
 
-MAINTAINER=	c0rn@o2.pl
+MAINTAINER=	ports@FreeBSD.org
 COMMENT=	Open source, classic overhead run-and-gun game
 
 LICENSE=	GPLv2
