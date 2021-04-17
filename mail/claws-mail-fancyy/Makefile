@@ -6,11 +6,14 @@ PORTREVISION=	0
 
 COMMENT=	Webkit based HTML renderer plugin for Claws Mail
 
-LIB_DEPENDS=	libsoup-gnome-2.4.so:devel/libsoup-gnome \
+LIB_DEPENDS=	libsoup-2.4.so:devel/libsoup \
 		libwebkitgtk-1.0.so:www/webkitgtk2
 
 CLAWS_PLUGINS_BUILD=	fancy
 
-.include "${PORTSDIR}/mail/claws-mail/Makefile.claws"
+PATCHDIR=	${.CURDIR}/files
+
+.include "../../../mail/claws-mail/Makefile.claws"
 MASTERDIR=	${PORTSDIR}/mail/claws-mail
+
 .include <bsd.port.mk>
