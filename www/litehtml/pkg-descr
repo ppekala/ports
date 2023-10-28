@@ -4,5 +4,3 @@ graphics and that litehtml does not depend on any image/draw/font library.
 You are free to use any library to draw images, fonts and any other graphics.
 litehtml just parses HTML/CSS and places the HTML elements into the correct
 positions (renders HTML).
-
-WWW: http://www.litehtml.com/
