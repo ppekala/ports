@@ -1,5 +1,5 @@
 PORTNAME=	claws-mail-papirus
-PORTVERSION=	20230912
+PORTVERSION=	20231109
 CATEGORIES=	x11-themes
 
 MAINTAINER=	ports@FreeBSD.org
@@ -16,7 +16,7 @@ BUILD_DEPENDS=	rsvg-convert:graphics/librsvg2 \
 USE_GITHUB=	yes
 GH_ACCOUNT=	papirusdevelopmentteam
 GH_PROJECT=	papirus-claws-mail-theme
-GH_TAGNAME=	8295d0a
+GH_TAGNAME=	25212c4
 
 NO_CONFIGURE=	yes
 ALL_TARGET=	build
