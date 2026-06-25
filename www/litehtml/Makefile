@@ -1,5 +1,5 @@
 PORTNAME=	litehtml
-PORTVERSION=	0.8
+PORTVERSION=	0.10
 DISTVERSIONPREFIX=	v
 CATEGORIES=	www devel
 
@@ -17,9 +17,5 @@ USE_GITHUB=	yes
 CMAKE_OFF=	BUILD_TESTING
 
 CONFLICTS_INSTALL=	gumbo # libgumbo.a
-
-post-patch:
-	@${REINPLACE_CMD} 's|"gumbo/gumbo.h"|<gumbo.h>|' \
-		${WRKSRC}/src/document.*
 
 .include <bsd.port.mk>
